@@ -263,7 +263,8 @@ public class PropertySetter {
      Convert <code>val</code> a String parameter to an object of a
      given type.
   */
-  //FIXME: This method should have only one exit point
+  //FIXME: This method should have only one exit point: 
+  //Remove return value which is currently existing in multiple lines
   protected
   Object convertArg(String val, Class type) {
     if(val == null)
