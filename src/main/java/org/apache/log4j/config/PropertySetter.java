@@ -111,6 +111,8 @@ public class PropertySetter {
 
      
    */
+  
+  //FIXME: Instantiate Objects outside the loop
   public
   void setProperties(Properties properties, String prefix) {
     int len = prefix.length();
@@ -261,6 +263,7 @@ public class PropertySetter {
      Convert <code>val</code> a String parameter to an object of a
      given type.
   */
+  //FIXME: This method should have only one exit point
   protected
   Object convertArg(String val, Class type) {
     if(val == null)
