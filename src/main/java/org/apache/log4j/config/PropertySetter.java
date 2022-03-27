@@ -111,7 +111,7 @@ public class PropertySetter {
 
      
    */
-  
+  //TODO: String literals needs to be defined as constant for key and value which is evaluated multiple times
   //FIXME: Instantiate Objects outside the loop
   public
   void setProperties(Properties properties, String prefix) {
