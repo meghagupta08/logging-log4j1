@@ -388,6 +388,8 @@ public class SocketServerTestCase extends TestCase {
     Thread.currentThread().setName(oldThreadName);
   }
 
+  
+  //TODO -handle exception
   public void delay(int secs) {
     try {Thread.sleep(secs*1000);} catch(Exception e) {}
   }
