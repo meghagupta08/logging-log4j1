@@ -187,6 +187,7 @@ public class ConfigurationManager extends Object {
     _monitor.setNDCLogRecordFilter(text);
   }
 
+  //TODO: Remove redundant if blocks 
   protected void processCategories(Document doc) {
     CategoryExplorerTree tree = _monitor.getCategoryExplorerTree();
     CategoryExplorerModel model = tree.getExplorerModel();
