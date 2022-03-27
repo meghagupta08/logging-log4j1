@@ -44,6 +44,7 @@ import java.io.InputStreamReader;
  *
  * @author Ceki G&uuml;lc&uuml; 
  * */
+//FIXME: Handle dereferencing of readLine() with null check
 public class JMSSink implements javax.jms.MessageListener {
 
   static Logger logger = Logger.getLogger(JMSSink.class);
