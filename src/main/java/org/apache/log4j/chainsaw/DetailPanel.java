@@ -139,6 +139,7 @@ class DetailPanel
      * @param aStr the String to escape.
      * @return the escaped String
      */
+    //TODO: Rename c to a meaningful variable name
     private String escape(String aStr) {
         if (aStr == null) {
             return null;
