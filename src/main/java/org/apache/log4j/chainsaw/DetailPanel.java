@@ -139,7 +139,7 @@ class DetailPanel
      * @param aStr the String to escape.
      * @return the escaped String
      */
-    //TODO: Rename c to a meaningful variable name
+   
     private String escape(String aStr) {
         if (aStr == null) {
             return null;
@@ -147,8 +147,8 @@ class DetailPanel
 
         final StringBuffer buf = new StringBuffer();
         for (int i = 0; i < aStr.length(); i++) {
-            char c = aStr.charAt(i);
-            switch (c) {
+            char escapeCharacter = aStr.charAt(i);
+            switch (escapeCharacter) {
             case '<':
                 buf.append("&lt;");
                 break;
@@ -162,7 +162,7 @@ class DetailPanel
                 buf.append("&amp;");
                 break;
             default:
-                buf.append(c);
+                buf.append(escapeCharacter);
                 break;
             }
         }
