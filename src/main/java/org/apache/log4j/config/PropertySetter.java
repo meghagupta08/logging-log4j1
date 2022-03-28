@@ -111,7 +111,7 @@ public class PropertySetter {
 
      
    */
-  //TODO: String literals needs to be defined as constant for key and value which is evaluated multiple times
+
   //FIXME: Instantiate Objects outside the loop
   public
   void setProperties(Properties properties, String prefix) {
@@ -140,6 +140,8 @@ public class PropertySetter {
         //   if the property type is an OptionHandler
         //     (for example, triggeringPolicy of org.apache.log4j.rolling.RollingFileAppender)
         PropertyDescriptor prop = getPropertyDescriptor(Introspector.decapitalize(key));
+        String failureCause = "Failed to set property [" + key +
+                "] to value \"" + value + "\". ";
         if (prop != null
                 && OptionHandler.class.isAssignableFrom(prop.getPropertyType())
                 && prop.getWriteMethod() != null) {
@@ -152,18 +154,15 @@ public class PropertySetter {
             try {
                 prop.getWriteMethod().invoke(this.obj, new Object[] { opt });
             } catch(IllegalAccessException ex) {
-                LogLog.warn("Failed to set property [" + key +
-                            "] to value \"" + value + "\". ", ex);
+                LogLog.warn(failureCause, ex);
             } catch(InvocationTargetException ex) {
                 if (ex.getTargetException() instanceof InterruptedException
                         || ex.getTargetException() instanceof InterruptedIOException) {
                     Thread.currentThread().interrupt();
                 }
-                LogLog.warn("Failed to set property [" + key +
-                            "] to value \"" + value + "\". ", ex);
+                LogLog.warn(failureCause, ex);
             } catch(RuntimeException ex) {
-                LogLog.warn("Failed to set property [" + key +
-                            "] to value \"" + value + "\". ", ex);
+                LogLog.warn(failureCause, ex);
             }
             continue;
         }
