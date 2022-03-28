@@ -389,9 +389,11 @@ public class SocketServerTestCase extends TestCase {
   }
 
   
-  //TODO -handle exception
-  public void delay(int secs) {
-    try {Thread.sleep(secs*1000);} catch(Exception e) {}
+  public void delay(int secs) throws Exception {
+    try {Thread.sleep(secs*1000);
+    } catch(Exception e) {
+    	throw e;
+    }
   }
 
 
