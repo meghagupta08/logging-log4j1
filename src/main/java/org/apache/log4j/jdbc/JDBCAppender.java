@@ -234,9 +234,6 @@ public class JDBCAppender extends org.apache.log4j.AppenderSkeleton
    * The default behavior holds a single connection open until the appender
    * is closed (typically when garbage collected).
    */
-  //TODO: Empty method body without any logic
-  protected void closeConnection(Connection con) {
-  }
 
   /**
    * Override this to link with your connection pooling system.
