@@ -262,33 +262,31 @@ public class PropertySetter {
      Convert <code>val</code> a String parameter to an object of a
      given type.
   */
-  //FIXME: This method should have only one exit point: 
-  //Remove return value which is currently existing in multiple lines
   protected
   Object convertArg(String val, Class type) {
+	  Object returnValue=null;
     if(val == null)
-      return null;
-
+    	returnValue=null;
     String v = val.trim();
     if (String.class.isAssignableFrom(type)) {
-      return val;
+      returnValue = v;
     } else if (Integer.TYPE.isAssignableFrom(type)) {
-      return new Integer(v);
+      returnValue= new Integer(v);
     } else if (Long.TYPE.isAssignableFrom(type)) {
-      return new Long(v);
+    	returnValue = new Long(v);
     } else if (Boolean.TYPE.isAssignableFrom(type)) {
       if ("true".equalsIgnoreCase(v)) {
-        return Boolean.TRUE;
+    	  returnValue=Boolean.TRUE;
       } else if ("false".equalsIgnoreCase(v)) {
-        return Boolean.FALSE;
+    	  returnValue=Boolean.FALSE;
       }
     } else if (Priority.class.isAssignableFrom(type)) {
-      return OptionConverter.toLevel(v, (Level) Level.DEBUG);
+    	 returnValue=OptionConverter.toLevel(v, (Level) Level.DEBUG);
     } else if (ErrorHandler.class.isAssignableFrom(type)) {
-      return OptionConverter.instantiateByClassName(v, 
+    	returnValue= OptionConverter.instantiateByClassName(v, 
 	  ErrorHandler.class, null);
     }
-    return null;
+    return returnValue;
   }
   
   
