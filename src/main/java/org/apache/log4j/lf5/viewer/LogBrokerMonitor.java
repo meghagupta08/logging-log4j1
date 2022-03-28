@@ -1559,7 +1559,7 @@ public class LogBrokerMonitor {
   /**
    * Loads and parses a log file.
    */
-  //Dead code: Variable error is not being used anywhere
+  //TODO: Remove the unused variable error. 
   protected boolean loadLogFile(File file) {
     boolean ok = false;
     try {
