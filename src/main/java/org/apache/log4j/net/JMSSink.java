@@ -44,7 +44,7 @@ import java.io.InputStreamReader;
  *
  * @author Ceki G&uuml;lc&uuml; 
  * */
-//FIXME: Handle dereferencing of readLine() with null check
+
 public class JMSSink implements javax.jms.MessageListener {
 
   static Logger logger = Logger.getLogger(JMSSink.class);
@@ -75,7 +75,7 @@ public class JMSSink implements javax.jms.MessageListener {
     System.out.println("Type \"exit\" to quit JMSSink.");
     while(true){
       String s = stdin.readLine( );
-      if (s.equalsIgnoreCase("exit")) {
+      if (s!=null && s.equalsIgnoreCase("exit")) {
 	System.out.println("Exiting. Kill the application if it does not exit "
 			   + "due to daemon threads.");
 	return; 
