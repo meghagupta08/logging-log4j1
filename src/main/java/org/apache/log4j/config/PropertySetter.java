@@ -112,12 +112,11 @@ public class PropertySetter {
      
    */
 
-  //FIXME: Instantiate Objects outside the loop
   public
   void setProperties(Properties properties, String prefix) {
     int len = prefix.length();
-    
-    for (Enumeration e = properties.propertyNames(); e.hasMoreElements(); ) {
+    Enumeration enumeration = properties.propertyNames();
+    for (Enumeration e = enumeration; e.hasMoreElements(); ) {
       String key = (String) e.nextElement();
       
       // handle only properties that start with the desired frefix.
