@@ -1558,17 +1558,17 @@ public class LogBrokerMonitor {
 
   /**
    * Loads and parses a log file.
+ * @throws IOException 
    */
-  //TODO: Remove the unused variable error. 
-  protected boolean loadLogFile(File file) {
+ 
+  protected boolean loadLogFile(File file) throws IOException {
     boolean ok = false;
     try {
       LogFileParser lfp = new LogFileParser(file);
       lfp.parse(this);
       ok = true;
     } catch (IOException e) {
-      LogFactor5ErrorDialog error = new LogFactor5ErrorDialog(
-          getBaseFrame(), "Error reading " + file.getName());
+      throw e;
     }
 
     return ok;
