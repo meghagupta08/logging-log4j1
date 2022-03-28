@@ -187,7 +187,6 @@ public class ConfigurationManager extends Object {
     _monitor.setNDCLogRecordFilter(text);
   }
 
-  //TODO: Remove redundant if blocks 
   protected void processCategories(Document doc) {
     CategoryExplorerTree tree = _monitor.getCategoryExplorerTree();
     CategoryExplorerModel model = tree.getExplorerModel();
@@ -203,7 +202,6 @@ public class ConfigurationManager extends Object {
       map = n.getAttributes();
       CategoryNode chnode = model.addCategory(new CategoryPath(getValue(map, PATH)));
       chnode.setSelected((getValue(map, SELECTED).equalsIgnoreCase("true")) ? true : false);
-      if (getValue(map, EXPANDED).equalsIgnoreCase("true")) ;
       tree.expandPath(model.getTreePathToRoot(chnode));
     }
 
